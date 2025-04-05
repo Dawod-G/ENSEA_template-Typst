@@ -1,14 +1,20 @@
-#import "template.typ": *
+#import "template/rapport-tp.typ": *
+#import "@preview/glossy:0.8.0": *
 
-#show: project.with(
-  title: "TP ?",
-  authors: (
-    "LastName1 FirstName1",
-    "LastName2 FirstName2",
-    "etc. etc."
-  ),
-  objective: [Insert your objective here...],
-)
+#show link: set text(fill: blue.darken(40%))
+// #show: init-glossary.with(yaml("glossary.yaml"))
+
+#show label("red"): set text(red)
+
+#let quoteBlock = rect.with(fill: luma(240), stroke: (left: 0.25em))
+
+// Take a look at the file `template.typ` in the file panel
+// to customize this template and discover how it works.
+#show: project.with()
+
+// We generated the example code below so you can see how
+// your document will look. Go ahead and replace it with
+// your own content!
 
 = Introduction
 #lorem(30)
