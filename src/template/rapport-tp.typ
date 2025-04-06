@@ -1,28 +1,8 @@
-// edited on 05/04/2025
+// edited on 06/04/2025
 
-/* #import "@preview/codelst:2.0.2": sourcecode // for code blocks
-#sourcecode[```py
-code
-```] */
-
-/* #figure(
-image("media/im1.png", width: 80%),
-caption: "") */
-
-/* #figure(
-  table(
-  columns: (auto, auto, auto),
-  inset: 5pt,
-  align: left,
-  table.header(
-    [*A*], [*B*], [*C*],
-  ),
-  [A1], [B1], [C1],
-
-  [A2], [B2], [C2],
-),
-caption: ""
-) */
+// ============================
+// VARIABLES TO MODIFY
+// ============================
 
 // List of authors
 #let authors = (
@@ -45,6 +25,10 @@ caption: ""
   - Intégrer un système de communication sécurisé et instantané pour faciliter la coordination entre les membres de l'équipe. #linebreak()
   - Implémenter des mécanismes de suivi et de gestion des ressources en mission, comme les équipements et le personnel.
 ]
+
+// ============================
+// CONFIGURATION
+// ============================
 
 #let project(body) = {
   // Set the document's basic properties.
@@ -109,7 +93,7 @@ caption: ""
     #stack(
       dir: ltr, // left-to-right
       spacing: 5em, // space between contents
-      image("media/logo-ENSEA.jpg", width: 25%),
+      image("assets/logo-ENSEA.jpg", width: 25%),
     )
 
     #linebreak()
@@ -156,7 +140,7 @@ caption: ""
     header: context [
       #stack(
         dir: ltr,
-        align(left + bottom, image("media/logo-ENSEA.jpg", width:8%)),
+        align(left + bottom, image("assets/logo-ENSEA.jpg", width: 8%)),
         align(right + bottom)[#highlight[*A COMPLETER*]],
       )
       #box(width: 100%, height: 1pt, fill: black)

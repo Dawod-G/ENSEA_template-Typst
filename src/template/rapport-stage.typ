@@ -1,28 +1,8 @@
-// edited on 05/04/2025
+// edited on 06/04/2025
 
-/* #import "@preview/codelst:2.0.2": sourcecode // for code blocks
-#sourcecode[```py
-code
-```] */
-
-/* #figure(
-image("media/im1.png", width: 80%),
-caption: "") */
-
-/* #figure(
-  table(
-  columns: (auto, auto, auto),
-  inset: 5pt,
-  align: left,
-  table.header(
-    [*A*], [*B*], [*C*],
-  ),
-  [A1], [B1], [C1],
-
-  [A2], [B2], [C2],
-),
-caption: ""
-) */
+// ============================
+// VARIABLES TO MODIFY
+// ============================
 
 // List of authors
 #let authors = (
@@ -44,6 +24,10 @@ caption: ""
   - M. *Steve Rogers,* Directeur de la Stratégie #linebreak()
   - Mme *Natasha Romanoff*, Responsable des Opérations Secrètes #linebreak()
 ]
+
+// ============================
+// CONFIGURATION
+// ============================
 
 #let project(body) = {
   // Set the document's basic properties.
@@ -119,7 +103,7 @@ caption: ""
     #stack(
       dir: ltr, // left-to-right
       spacing: 5em, // space between contents
-      image("media/logo-ENSEA.jpg", width: 25%),
+      image("assets/logo-ENSEA.jpg", width: 25%),
       image("../media/avengers-logo.png", width: 25%),
     )
 
@@ -164,7 +148,7 @@ caption: ""
     header: context [
       #stack(
         dir: ltr,
-        align(left + bottom, image("media/logo-ENSEA.jpg", width: 8%)),
+        align(left + bottom, image("assets/logo-ENSEA.jpg", width: 8%)),
         align(right + bottom)[#highlight[*A COMPLETER*]],
       )
       #box(width: 100%, height: 1pt, fill: black)
@@ -172,9 +156,11 @@ caption: ""
 
     footer: context [
       #box(width: 100%, height: 1pt, fill: black)
-      #align(right + top)[*École Nationale Supérieure de l’Électronique et de ses Applications* #linebreak()
-      6, avenue du Ponceau • CS20707 Cergy • 95014 Cergy-Pontoise Cedex • France #linebreak()
-      #link("tel:+33130736666")[+33 (0)1 30 73 66 66] • #link("www.ensea.fr")[www.ensea.fr]]
+      #align(
+        right + top,
+      )[*École Nationale Supérieure de l’Électronique et de ses Applications* #linebreak()
+        6, avenue du Ponceau • CS20707 Cergy • 95014 Cergy-Pontoise Cedex • France #linebreak()
+        #link("tel:+33130736666")[+33 (0)1 30 73 66 66] • #link("www.ensea.fr")[www.ensea.fr]]
 
       #set align(center + top)
       #counter(page).display("— 1/1 —", both: true)
@@ -190,7 +176,10 @@ caption: ""
     strong(it)
   }
 
-  outline(depth: 2)
+  outline(
+    // set the maximum level up to which elements are included in the outline
+    depth: 2,
+  )
   pagebreak()
 
   outline(
