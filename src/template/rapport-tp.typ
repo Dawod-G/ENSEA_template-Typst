@@ -24,9 +24,7 @@ caption: "") */
 caption: ""
 ) */
 
-// The project function defines how your document looks.
-// It takes your content and some metadata and formats it.
-// Go ahead and customize it to your liking!
+// List of authors
 #let authors = (
   "Peter PARKER",
   "Tony STARK",
@@ -66,7 +64,7 @@ caption: ""
   region: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 */
 
   // Set the heading properties
-  set heading(numbering: "1.1.")
+  set heading(numbering: "I.1.a)")
   show heading: set block(spacing: 1em) // config. of the spacing after headings
   // show heading.where(level: 1): set block(spacing: 1.5em)
 
@@ -158,9 +156,10 @@ caption: ""
     header: context [
       #stack(
         dir: ltr,
-        image("media/logo-ENSEA.jpg", width: 10%),
-        align(right)[#highlight[*A COMPLETER*]],
+        align(left + bottom, image("media/logo-ENSEA.jpg", width:8%)),
+        align(right + bottom)[#highlight[*A COMPLETER*]],
       )
+      #box(width: 100%, height: 1pt, fill: black)
     ],
 
     footer: context [

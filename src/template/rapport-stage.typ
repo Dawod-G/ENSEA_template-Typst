@@ -1,6 +1,6 @@
 // edited on 05/04/2025
 
-/* #import "@preview/codelst:2.0.2": sourcecode // pour les blocs de code
+/* #import "@preview/codelst:2.0.2": sourcecode // for code blocks
 #sourcecode[```py
 code
 ```] */
@@ -24,9 +24,7 @@ caption: "") */
 caption: ""
 ) */
 
-// The project function defines how your document looks.
-// It takes your content and some metadata and formats it.
-// Go ahead and customize it to your liking!
+// List of authors
 #let authors = (
   "Peter PARKER",
 )
@@ -42,9 +40,9 @@ caption: ""
 // Details about the internship
 #let internshipDetails = [Stage effectué du *1er mars au 30 août 2025*, au sein de la société *ShieldTech*, située à New York.
 
-Sous la responsabilité de : #linebreak()
-- M. *Steve Rogers,* Directeur de la Stratégie #linebreak()
-- Mme *Natasha Romanoff*, Responsable des Opérations Secrètes #linebreak()
+  Sous la responsabilité de : #linebreak()
+  - M. *Steve Rogers,* Directeur de la Stratégie #linebreak()
+  - Mme *Natasha Romanoff*, Responsable des Opérations Secrètes #linebreak()
 ]
 
 #let project(body) = {
@@ -65,7 +63,7 @@ Sous la responsabilité de : #linebreak()
   region: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 */
 
   // Set the heading properties
-  set heading(numbering: "1.1.")
+  set heading(numbering: "I.1.a)")
   show heading: set block(spacing: 1em) // config. of the spacing after headings
   // show heading.where(level: 1): set block(spacing: 1.5em)
 
@@ -166,17 +164,19 @@ Sous la responsabilité de : #linebreak()
     header: context [
       #stack(
         dir: ltr,
-        image("media/logo-ENSEA.jpg", width: 10%),
-        align(right)[#highlight[*A COMPLETER*]],
+        align(left + bottom, image("media/logo-ENSEA.jpg", width: 8%)),
+        align(right + bottom)[#highlight[*A COMPLETER*]],
       )
+      #box(width: 100%, height: 1pt, fill: black)
     ],
 
     footer: context [
-      #h(1fr) *École Nationale Supérieure de l’Électronique et de ses Applications* #linebreak()
-      #h(1fr) 6, avenue du Ponceau • CS20707 Cergy • 95014 Cergy-Pontoise Cedex • France #linebreak()
-      #h(1fr) #link("tel:+33130736666")[+33 (0)1 30 73 66 66] • #link("www.ensea.fr")[www.ensea.fr]
+      #box(width: 100%, height: 1pt, fill: black)
+      #align(right + top)[*École Nationale Supérieure de l’Électronique et de ses Applications* #linebreak()
+      6, avenue du Ponceau • CS20707 Cergy • 95014 Cergy-Pontoise Cedex • France #linebreak()
+      #link("tel:+33130736666")[+33 (0)1 30 73 66 66] • #link("www.ensea.fr")[www.ensea.fr]]
 
-      #set align(center)
+      #set align(center + top)
       #counter(page).display("— 1/1 —", both: true)
     ],
   )
