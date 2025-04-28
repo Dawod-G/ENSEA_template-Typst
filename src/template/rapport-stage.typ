@@ -1,4 +1,4 @@
-// edited on 06/04/2025
+// edited on 10/04/2025
 
 // ============================
 // VARIABLES TO MODIFY
@@ -15,7 +15,7 @@
   Année 2024/2025]
 
 // Title of the report
-#let title = "Étude d'une plateforme d'intervention en temps réel pour les Avengers"
+#let title = [Étude d'une plateforme d'intervention en temps réel pour les Avengers]
 
 // Details about the internship
 #let internshipDetails = [Stage effectué du *1er mars au 30 août 2025*, au sein de la société *ShieldTech*, située à New York.
@@ -43,12 +43,14 @@
   // Set the text properties
   set text(font: "New Computer Modern", size: 12pt, lang: "fr", region: "fr")
   /*   pour l'anglais : lang: "en" et region: "us"
+  pour les autres langues/régions se référer à cette page
   lang: https://en.wikipedia.org/wiki/ISO_639
   region: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 */
 
   // Set the heading properties
   set heading(numbering: "I.1.a)")
-  show heading: set block(spacing: 1em) // config. of the spacing after headings
+  // config. of the spacing after headings
+  show heading: set block(spacing: 1em)
   // show heading.where(level: 1): set block(spacing: 1.5em)
 
   // Set the list properties
@@ -76,7 +78,7 @@
   // Configure the raw block properties
   show raw.where(block: true): set par(justify: false)
 
-  // Title row configuration
+  // First page configuration
   align(center + horizon)[
     #block(text(weight: 700, size: 22pt, [*ENSEA*]))
 
@@ -182,6 +184,7 @@
   )
   pagebreak()
 
+  // Figure contents configuration
   outline(
     title: none,
     target: figure,

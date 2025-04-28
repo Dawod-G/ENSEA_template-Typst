@@ -1,4 +1,4 @@
-// edited on 06/04/2025
+// edited on 10/04/2025
 
 // ============================
 // VARIABLES TO MODIFY
@@ -17,7 +17,7 @@
   Année 2024/2025]
 
 // Title of the lab
-#let title = "Étude d'une plateforme d'intervention en temps réel pour les Avengers"
+#let title = [Étude d'une plateforme d'intervention en temps réel pour les Avengers]
 
 // Description of the lab objectives
 #let labDescription = [
@@ -44,6 +44,7 @@
   // Set the text properties
   set text(font: "New Computer Modern", size: 12pt, lang: "fr", region: "fr")
   /*   pour l'anglais : lang: "en" et region: "us"
+  pour les autres langues/régions se référer à cette page
   lang: https://en.wikipedia.org/wiki/ISO_639
   region: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 */
 
@@ -77,7 +78,7 @@
   // Configure the raw block properties
   show raw.where(block: true): set par(justify: false)
 
-  // Title row configuration
+  // First page configuration
   align(center + horizon)[
     #block(text(weight: 700, size: 22pt, [*ENSEA*]))
 
@@ -161,7 +162,10 @@
     strong(it)
   }
 
-  /*   outline(depth: 2)
+  /*    outline(
+    // set the maximum level up to which elements are included in the outline
+    depth: 2,
+  )
   pagebreak() */
 
   body
