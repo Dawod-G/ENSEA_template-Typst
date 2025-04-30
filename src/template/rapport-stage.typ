@@ -192,7 +192,7 @@
   pagebreak()
 
   [
-    #bibliography("../source.bib")
+    #bibliography("../references.bib")
   ]
   pagebreak()
 

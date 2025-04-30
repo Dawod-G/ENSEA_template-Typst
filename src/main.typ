@@ -1,4 +1,4 @@
-// edited on 06/04/2025
+// edited on 30/04/2025
 
 /* #import "@preview/glossy:0.8.0": * */
 /* #show: init-glossary.with(yaml("glossary.yaml")) */
@@ -15,7 +15,9 @@
 
 #let quoteBlock = rect.with(fill: luma(240), stroke: (left: 0.25em))
 
-#show link: set text(fill: blue.darken(40%))
+/* #show link: set text(fill: blue.darken(40%))
+Affiche les liens en bleu.
+Désactivé pour le moment car affiche également les liens de pied de page en bleu. */
 
 #show: project.with()
 
@@ -23,6 +25,8 @@
 // START HERE
 // DELETE THE LINES BELOW THIS COMMENT
 // ============================
+
+#quoteBlock[⚠️ Pensez à mettre à jour les librairies suggérées dans ce document vers leur dernière version.]
 
 = Titre de niveau 1
 #lorem(70)
@@ -161,14 +165,27 @@ Pour plus d'informations : https://typst.app/docs/reference/model/figure
 Pour plus d'informations : https://typst.app/docs/reference/visualize/chart
 
 == Citer une source
-Pour citer une source, on peut utiliser la commande `cite` ou encore taguer la source à l'aide de la touche `@` :
+Pour citer une source, on peut utiliser les méthodes suivantes :
+```
+- Méthode 1 : @newton1833philosophiae
+- Méthode 2 : #cite(<newton1833philosophiae>)
+```
 
-@newton1833philosophiae
-#cite(<newton1833philosophiae>)
+// Dans un bloc pour éviter les erreurs suivantes :
+// - "The document does not contain a bibliography"
+// - "Label <random-label> does not exist in the document"
+// Cela se produit lorsque la template "rapport-stage" est sélectionnée, car elle ne contient pas de bibliographie.
+
+#underline[*ASTUCES :*] Pour les références scientifiques, vérifier en priorité la disponibilité de la source sur Google Scholar, car la mise en forme BibTeX y est déjà fournie. Si c'est le cas, cliquer sur "Citer", puis sur "BibTeX", ensuite coller le texte dans le fichier "source.bib".
 
 == Liens cliquables
 On peut intégrer des liens cliquables à l'aide de la commande `link`. Par exemple, voici un lien vers la #link("https://typst.app/docs/")[documentation de Typst].
 
 Pour plus d'informations : https://typst.app/universe/package/cetz-plot/
 
-= Librairie que j'aime bien
+== Diagrammes de Gantt avec `gantty`
+
+#import "@preview/gantty:0.2.0": gantt
+#gantt(yaml("gantty.yaml"))
+
+Pour plus d'informations : https://typst.app/universe/package/gantty/
