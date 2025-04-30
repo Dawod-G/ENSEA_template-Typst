@@ -16,8 +16,8 @@
 #let quoteBlock = rect.with(fill: luma(240), stroke: (left: 0.25em))
 
 /* #show link: set text(fill: blue.darken(40%))
-Affiche les liens en bleu.
-Désactivé pour le moment car affiche également les liens de pied de page en bleu. */
+Display links in blue.
+Disabled for now because it also displays footer links in blue. */
 
 #show: project.with()
 
@@ -37,7 +37,7 @@ Désactivé pour le moment car affiche également les liens de pied de page en b
 === Titre de niveau 3
 #lorem(35)
 
-// Insérer un saut de page
+// Insert a page break
 #pagebreak()
 
 = Listes
@@ -161,10 +161,10 @@ Pour citer une source, on peut utiliser les méthodes suivantes :
 - Méthode 2 : #cite(<newton1833philosophiae>)
 ```
 
-// Dans un bloc pour éviter les erreurs suivantes :
+// In a block to avoid the following errors:
 // - "The document does not contain a bibliography"
 // - "Label <random-label> does not exist in the document"
-// Cela se produit lorsque la template "rapport-stage" est sélectionnée, car elle ne contient pas de bibliographie.
+// This happens when the "rapport-stage" template is selected, as it doesn't contain a bibliography.
 
 #underline[*ASTUCES :*] Pour les références scientifiques, vérifier en priorité la disponibilité de la source sur Google Scholar, car la mise en forme BibTeX y est déjà fournie. Si c'est le cas, cliquer sur "Citer", puis sur "BibTeX", ensuite coller le texte dans le fichier "source.bib".
 

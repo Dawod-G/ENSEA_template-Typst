@@ -35,16 +35,12 @@
   set document(author: authors, title: title)
 
   // Set the page properties
-  set page(
-    paper: "a4",
-    margin: auto,
-    number-align: center,
-  )
+  set page(paper: "a4", margin: auto, number-align: center)
 
   // Set the text properties
   set text(font: "New Computer Modern", size: 12pt, lang: "fr", region: "fr")
-  /*   pour l'anglais : lang: "en" et region: "us"
-  pour les autres langues/régions se référer à cette page
+  /* for English: lang: 'en' and region: 'us'
+  For other languages/regions, refer to this page:
   lang: https://en.wikipedia.org/wiki/ISO_639
   region: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 */
 
@@ -82,13 +78,11 @@
   align(center + horizon)[
     #block(text(weight: 700, size: 22pt, [*ENSEA*]))
 
-    #block(
-      text(
-        weight: 700,
-        size: 16pt,
-        [*École Nationale Supérieure de l'Électronique et de ses Applications*],
-      ),
-    )
+    #block(text(
+      weight: 700,
+      size: 16pt,
+      [*École Nationale Supérieure de l'Électronique et de ses Applications*],
+    ))
 
     #linebreak()
     #stack(
@@ -101,31 +95,19 @@
     #block(text(weight: 700, size: 22pt, title))
 
     #linebreak()
-    #block(
-      text(
-        weight: 700,
-        size: 16pt,
-        [#authors.map(strong).join(", ", last: " et ")],
-      ),
-    )
+    #block(text(weight: 700, size: 16pt, [#(
+        authors.map(strong).join(", ", last: " et ")
+      )]))
 
-    #block(
-      text(
-        weight: 400,
-        size: 14pt,
-        studentInfo,
-      ),
-    )
+    #block(text(weight: 400, size: 14pt, studentInfo))
 
     #align(left)[
       #linebreak()
-      #block(
-        text(
-          weight: 400,
-          size: 14pt,
-          [#underline[*Objectifs*] : #labDescription,],
-        ),
-      )
+      #block(text(
+        weight: 400,
+        size: 14pt,
+        [#underline[*Objectifs*] : #labDescription,],
+      ))
     ]
 
     /*       #heading(outlined: false, numbering: none, text(0.85em, smallcaps[objectif]))
