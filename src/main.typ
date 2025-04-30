@@ -149,20 +149,10 @@ Pour plus d'informations : https://typst.app/docs/reference/model/figure
   caption: "Forces gravitationnelles entre le Soleil et quelques planètes",
 )
 
-== Ajouter un graphique
-/*
-#figure(
-  chart.bar(
-    data: [5, 10, 15, 20, 25],
-    labels: ["Mercure", "Vénus", "Terre", "Mars", "Jupiter"],
-    title: "Masse des planètes",
-    x: [*Planètes*], y: [*Masse (kg)*],
-    colors: [#ff7f0e, #ffbb78, #ff7f0e, #ff6e6d, #ff7f0e]
-  )
-)
-*/
+== Insérer un graphe avec `cetz` et `cetz-plot`
+La prise en main de ces packages peut être difficile au début.
 
-Pour plus d'informations : https://typst.app/docs/reference/visualize/chart
+Consultez la documentation de #underline[*#link("https://typst.app/universe/package/cetz/")[cetz]*] et de #underline[*#link("https://typst.app/universe/package/cetz-plot/")[cetz-plot]*].
 
 == Citer une source
 Pour citer une source, on peut utiliser les méthodes suivantes :
