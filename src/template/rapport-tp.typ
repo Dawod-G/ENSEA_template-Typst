@@ -1,4 +1,4 @@
-// edited on 10/04/2025
+// edited on 01/05/2025
 
 // ============================
 // VARIABLES TO MODIFY
@@ -6,9 +6,9 @@
 
 // List of authors
 #let authors = (
+  "Bruce BANNER",
   "Peter PARKER",
   "Tony STARK",
-  "Bruce BANNER",
 )
 
 // Information about the student
@@ -46,7 +46,10 @@
 
   // Set the heading properties
   set heading(numbering: "I.1.a)")
-  show heading: set block(spacing: 1em) // config. of the spacing after headings
+
+  // config. of the spacing after headings
+  show heading: set block(spacing: 1em)
+
   // show heading.where(level: 1): set block(spacing: 1.5em)
 
   // Set the list properties
@@ -123,15 +126,38 @@
     header: context [
       #stack(
         dir: ltr,
+
         align(left + bottom, image("assets/logo-ENSEA.jpg", width: 8%)),
-        align(right + bottom)[#highlight[*A COMPLETER*]],
+
+        h(5%), // 5% space before the title
+
+        align(center + bottom)[
+          #box(width: 84%)[
+            #title
+          ]
+        ],
       )
       #box(width: 100%, height: 1pt, fill: black)
     ],
 
     footer: context [
+      #box(width: 100%, height: 1pt, fill: black)
+
+      #stack(
+        dir: ltr,
+
+        align(left + top)[
+          #box(width: 84%)[#(
+              authors.join(", ", last: " et ")
+            )]],
+
+        h(5%), // 5% space before the title
+
+        align(right + top)[
+          #box(width: 8%)[#counter(page).display("1/1", both: true)]],
+      )
+
       #set align(center)
-      #counter(page).display("— 1/1 —", both: true)
     ],
   )
 

@@ -1,4 +1,4 @@
-// edited on 10/04/2025
+// edited on 01/05/2025
 
 // ============================
 // VARIABLES TO MODIFY
@@ -45,6 +45,7 @@
 
   // Set the heading properties
   set heading(numbering: "I.1.a)")
+
   // config. of the spacing after headings
   show heading: set block(spacing: 1em)
   // show heading.where(level: 1): set block(spacing: 1.5em)
@@ -100,7 +101,7 @@
       dir: ltr, // left-to-right
       spacing: 5em, // space between contents
       image("assets/logo-ENSEA.jpg", width: 25%),
-      image("../media/avengers-logo.png", width: 25%),
+      image("../media/logo-2.png", width: 25%),
     )
 
     #linebreak()
@@ -129,9 +130,22 @@
     header: context [
       #stack(
         dir: ltr,
+
         align(left + bottom, image("assets/logo-ENSEA.jpg", width: 8%)),
-        align(right + bottom)[#highlight[*A COMPLETER*]],
+
+        h(7%), // 7% space before the title
+
+        align(center + bottom)[
+          #box(width: 70%)[
+            #title
+          ]
+        ],
+
+        h(7%), // 7% space before the title
+
+        align(right + bottom, image("../media/logo-2.png", width: 8%)),
       )
+
       #box(width: 100%, height: 1pt, fill: black)
     ],
 

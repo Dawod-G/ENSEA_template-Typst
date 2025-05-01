@@ -15,9 +15,9 @@
 
 #let quoteBlock = rect.with(fill: luma(240), stroke: (left: 0.25em))
 
-/* #show link: set text(fill: blue.darken(40%))
-Display links in blue.
-Disabled for now because it also displays footer links in blue. */
+// #show link: set text(fill: blue.darken(40%))
+// // Display links in blue.
+// // Disabled for now because it also displays footer links in blue.
 
 #show: project.with()
 
