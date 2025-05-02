@@ -19,7 +19,7 @@
 // // Display links in blue.
 // // Disabled for now because it also displays footer links in blue.
 
-#show: project.with()
+
 
 // ============================
 // START HERE
@@ -160,13 +160,11 @@ Pour citer une source, on peut utiliser les méthodes suivantes :
 - Méthode 1 : `@newton1833philosophiae` @newton1833philosophiae
 - Méthode 2 : `#cite(<newton1833philosophiae>)` #cite(<newton1833philosophiae>)
 
-
-// In a block to avoid the following errors:
-// - "The document does not contain a bibliography"
-// - "Label <random-label> does not exist in the document"
-// This happens when the "rapport-stage" template is selected, as it doesn't contain a bibliography.
-
 #underline[*ASTUCES :*] Pour les références scientifiques, vérifier en priorité la disponibilité de la source sur Google Scholar, car la mise en forme BibTeX y est déjà fournie. Si c'est le cas, cliquer sur "Citer", puis sur "BibTeX", ensuite coller le texte dans le fichier "source.bib".
+
+  // Bibliography configuration
+  #bibliography("modules/references.bib")
+  #pagebreak()
 
 == Liens cliquables
 On peut intégrer des liens cliquables à l'aide de la commande `link`. Par exemple, voici un lien vers la #link("https://typst.app/docs/")[documentation de Typst].
@@ -176,6 +174,6 @@ Pour plus d'informations : https://typst.app/universe/package/cetz-plot/
 == Diagrammes de Gantt avec `gantty`
 
 #import "@preview/gantty:0.2.0": gantt
-#gantt(yaml("gantty.yaml"))
+#gantt(yaml("modules/gantty.yaml"))
 
 Pour plus d'informations : https://typst.app/universe/package/gantty/

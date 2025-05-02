@@ -190,11 +190,11 @@
   pagebreak()
 
   // Bibliography configuration
-  bibliography("../references.bib")
+  bibliography("../modules/references.bib")
   pagebreak()
 
   // Appendices configuration
   heading()[Annexes]
-  import "../annexe.typ": annexes
+  import "../2-annexe.typ": annexes
   annexes()
 }
