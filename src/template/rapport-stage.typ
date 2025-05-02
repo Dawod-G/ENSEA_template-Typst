@@ -1,4 +1,4 @@
-// edited on 01/05/2025
+// edited on 02/05/2025
 
 // ============================
 // VARIABLES TO MODIFY
@@ -47,8 +47,7 @@
   set heading(numbering: "I.1.a)")
 
   // config. of the spacing after headings
-  show heading: set block(spacing: 1em)
-  // show heading.where(level: 1): set block(spacing: 1.5em)
+  show heading.where(level: 1): set block(spacing: 1em)
 
   // Set the list properties
   set list(indent: 15pt, marker: [--]) // config. of lists
@@ -167,24 +166,35 @@
     // make level 1 headings bold
     level: 1,
   ): it => {
-    v(12pt, weak: false)
+    v(12pt, weak: true)
     strong(it)
   }
 
   outline(
     // set the maximum level up to which elements are included in the outline
-    depth: 2,
+    // depth: 2,
   )
   pagebreak()
 
   // Figure contents configuration
-  outline(title: none, target: figure)
+  heading(numbering: none)[Liste des figures]
+  outline(title: none, target: figure.where(kind: image))
   pagebreak()
 
-  [
-    #bibliography("../references.bib")
-  ]
+  // Table contents configuration
+  heading(numbering: none)[Liste des tableaux]
+  outline(title: none, target: figure.where(kind: table))
   pagebreak()
 
   body
+  pagebreak()
+
+  // Bibliography configuration
+  bibliography("../references.bib")
+  pagebreak()
+
+  // Appendices configuration
+  heading()[Annexes]
+  import "../annexe.typ": annexes
+  annexes()
 }
