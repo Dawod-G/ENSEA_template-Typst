@@ -161,6 +161,11 @@
     ],
   )
 
+  heading(numbering: none, outlined: false)[Remerciements]
+  import "../2-remerciements.typ": remerciements
+  remerciements()
+  pagebreak()
+
   // Contents configuration
   show outline.entry.where(
     // make level 1 headings bold
@@ -190,11 +195,11 @@
   pagebreak()
 
   // Bibliography configuration
-  bibliography("../modules/references.bib")
+  bibliography("../2-references.bib")
   pagebreak()
 
   // Appendices configuration
   heading()[Annexes]
-  import "../2-annexe.typ": annexes
+  import "../2-annexes.typ": annexes
   annexes()
 }
