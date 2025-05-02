@@ -1,5 +1,7 @@
 // edited on 02/05/2025
 
+#import "@preview/glossy:0.8.0": *
+
 // ============================
 // VARIABLES TO MODIFY
 // ============================
@@ -161,6 +163,7 @@
     ],
   )
 
+  // Acknowledgements configuration
   heading(numbering: none, outlined: false)[Remerciements]
   import "../2-remerciements.typ": remerciements
   remerciements()
@@ -191,6 +194,81 @@
   outline(title: none, target: figure.where(kind: table))
   pagebreak()
 
+  // Glossary configuration
+  let my-theme = (
+    // Renders the main glossary section as a single column
+    // Parameters:
+    //   title: The glossary section title
+    //   body: Content containing all groups and entries
+    section: (title, body) => {
+      heading(level: 1, title, numbering: none)
+      body
+    },
+    // Renders a group of related glossary terms
+    // Parameters:
+    //   name: Group name (empty string for ungrouped terms)
+    //   index: Zero-based group index
+    //   total: Total number of groups
+    //   body: Content containing the group's entries
+    group: (name, index, total, body) => {
+      if name != "" and total > 1 {
+        heading(level: 2, name)
+      }
+      body
+    },
+    // Renders a single glossary entry with term, definition, and page references
+    // Parameters:
+    //   entry: Dictionary containing term data:
+    //     - short: Short form of term
+    //     - long: Long form of term (optional)
+    //     - description: Term description (optional)
+    //     - label: Term's dictionary label
+    //     - pages: Linked page numbers where term appears
+    //   index: Zero-based entry index within group
+    //   total: Total entries in group
+    entry: (entry, index, total) => {
+      // Format the term parts
+      let term = text(entry.short, weight: "bold")
+
+      // Optional long form
+      let long-form = if entry.long == none {
+        []
+      } else {
+        [#text(" (" + entry.long + ")")]
+      }
+
+      // Optional description
+      let description = if entry.description == none {
+        []
+      } else {
+        [: #entry.description]
+      }
+
+      // Optional pages (always plural in French example)
+      let pages = if entry.pages == none {
+        []
+      } else {
+        [#text(" (pp. " + entry.pages + ")")]
+      }
+
+      // Create the complete entry with hanging indent
+      block(spacing: 0.5em, pad(
+        left: 1em,
+        bottom: 0.5em,
+        block([#term#entry.label#long-form#description #h(1em) #pages]),
+      ))
+    },
+  )
+
+
+  glossary(
+    title: "Glossaire",
+    theme: my-theme, // Optional: defaults to theme-academic
+    sort: true, // Optional: whether or not to sort the glossary
+    ignore-case: false, // Optional: ignore case when sorting terms
+  )
+  pagebreak()
+
   body
   pagebreak()
 
@@ -202,4 +280,5 @@
   heading()[Annexes]
   import "../2-annexes.typ": annexes
   annexes()
+}
 }

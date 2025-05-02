@@ -9,9 +9,6 @@
     )
 
     == Logo des Avengers
-    #figure(
-      image("media/logo-2.png", width: 25%),
-      caption: [Logo des Avengers],
-    )
+    #figure(image("media/logo-2.png", width: 25%), caption: [Logo des Avengers])
   ]
 }
