@@ -1,4 +1,4 @@
-// edited on 01/05/2025
+// edited on 02/05/2025
 
 // ============================
 // VARIABLES TO MODIFY
@@ -48,9 +48,7 @@
   set heading(numbering: "I.1.a)")
 
   // config. of the spacing after headings
-  show heading: set block(spacing: 1em)
-
-  // show heading.where(level: 1): set block(spacing: 1.5em)
+  show heading.where(level: 1): set block(spacing: 1em)
 
   // Set the list properties
   set list(indent: 15pt, marker: [--]) // config. of lists
