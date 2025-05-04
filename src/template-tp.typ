@@ -1,36 +1,16 @@
-// edited on 02/05/2025
-
-// ============================
-// VARIABLES TO MODIFY
-// ============================
-
-// List of authors
-#let authors = (
-  "Bruce BANNER",
-  "Peter PARKER",
-  "Tony STARK",
-)
-
-// Information about the student
-#let studentInfo = [*Élève ingénieur en 3#super[ème] année* #linebreak()
-  Promotion 2025 #linebreak()
-  Année 2024/2025]
-
-// Title of the lab
-#let title = [Étude d'une plateforme d'intervention en temps réel pour les Avengers]
-
-// Description of the lab objectives
-#let labDescription = [
-  - Développer une interface de gestion des missions accessible en temps réel par tous les Avengers. #linebreak()
-  - Intégrer un système de communication sécurisé et instantané pour faciliter la coordination entre les membres de l'équipe. #linebreak()
-  - Implémenter des mécanismes de suivi et de gestion des ressources en mission, comme les équipements et le personnel.
-]
+// edited on 03/05/2025
 
 // ============================
 // CONFIGURATION
 // ============================
 
-#let project(body) = {
+#let lab-report(
+  title: none,
+  authors: none,
+  studentInfo: none,
+  labDescription: none,
+  body,
+) = {
   // Set the document's basic properties.
   set document(author: authors, title: title)
 
@@ -47,7 +27,7 @@
   // Set the heading properties
   set heading(numbering: "I.1.a)")
 
-  // config. of the spacing after headings
+  // Config. of the spacing after headings
   show heading.where(level: 1): set block(spacing: 1em)
 
   // Set the list properties
@@ -74,6 +54,9 @@
 
   // Configure the raw block properties
   show raw.where(block: true): set par(justify: false)
+
+  // Display links in blue
+  show link: set text(fill: blue.darken(40%))
 
   // First page configuration
   align(center + horizon)[
@@ -107,7 +90,7 @@
       #block(text(
         weight: 400,
         size: 14pt,
-        [#underline[*Objectifs*] : #labDescription,],
+        [#underline[*Objectifs*] : #labDescription],
       ))
     ]
 
@@ -158,21 +141,6 @@
       #set align(center)
     ],
   )
-
-  // Contents configuration
-  show outline.entry.where(
-    // make level 1 headings bold
-    level: 1,
-  ): it => {
-    v(12pt, weak: false)
-    strong(it)
-  }
-
-  /*    outline(
-    // set the maximum level up to which elements are included in the outline
-    depth: 2,
-  )
-  pagebreak() */
 
   body
 }

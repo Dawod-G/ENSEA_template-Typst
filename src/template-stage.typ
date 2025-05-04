@@ -1,37 +1,24 @@
-// edited on 02/05/2025
+// edited on 04/05/2025
 
 #import "@preview/glossy:0.8.0": *
-
-// ============================
-// VARIABLES TO MODIFY
-// ============================
-
-// List of authors
-#let authors = (
-  "Peter PARKER",
-)
-
-// Information about the student
-#let studentInfo = [*Élève ingénieur en 3#super[ème] année* #linebreak()
-  Promotion 2025 #linebreak()
-  Année 2024/2025]
-
-// Title of the report
-#let title = [Étude d'une plateforme d'intervention en temps réel pour les Avengers]
-
-// Details about the internship
-#let internshipDetails = [Stage effectué du *1er mars au 30 août 2025*, au sein de la société *ShieldTech*, située à New York.
-
-  Sous la responsabilité de : #linebreak()
-  - M. *Steve Rogers,* Directeur de la Stratégie #linebreak()
-  - Mme *Natasha Romanoff*, Responsable des Opérations Secrètes #linebreak()
-]
 
 // ============================
 // CONFIGURATION
 // ============================
 
-#let project(body) = {
+#let lab-internship(
+  companyLogo: none,
+  authors: none,
+  studentInfo: none,
+  title: none,
+  internshipDetails: none,
+  enableFigureContent: true,
+  enableTableContent: true,
+  enableGlossary: true,
+  enableBibliography: true,
+  enableAppendices: true,
+  body,
+) = {
   // Set the document's basic properties.
   set document(author: authors, title: title)
 
@@ -102,7 +89,7 @@
       dir: ltr, // left-to-right
       spacing: 5em, // space between contents
       image("assets/logo-ENSEA.jpg", width: 25%),
-      image("../media/logo-2.png", width: 25%),
+      image(companyLogo, width: 25%),
     )
 
     #linebreak()
@@ -144,7 +131,7 @@
 
         h(7%), // 7% space before the title
 
-        align(right + bottom, image("../media/logo-2.png", width: 8%)),
+        align(right + bottom, image(companyLogo, width: 8%)),
       )
 
       #box(width: 100%, height: 1pt, fill: black)
@@ -165,10 +152,10 @@
 
   // Acknowledgements configuration
   heading(numbering: none, outlined: false)[Remerciements]
-  import "../2-remerciements.typ": remerciements
+  import "template/acknowledgements.typ": remerciements
   remerciements()
-  pagebreak()
 
+  pagebreak()
   // Contents configuration
   show outline.entry.where(
     // make level 1 headings bold
@@ -182,17 +169,24 @@
     // set the maximum level up to which elements are included in the outline
     // depth: 2,
   )
-  pagebreak()
+
 
   // Figure contents configuration
-  heading(numbering: none)[Liste des figures]
-  outline(title: none, target: figure.where(kind: image))
-  pagebreak()
+  if (enableFigureContent) {
+    pagebreak()
+    heading(numbering: none)[Liste des figures]
+    outline(title: none, target: figure.where(kind: image))
+  }
 
   // Table contents configuration
-  heading(numbering: none)[Liste des tableaux]
-  outline(title: none, target: figure.where(kind: table))
+  if (enableTableContent) {
+    pagebreak()
+    heading(numbering: none)[Liste des tableaux]
+    outline(title: none, target: figure.where(kind: table))
+  }
+
   pagebreak()
+  body
 
   // Glossary configuration
   let my-theme = (
@@ -201,7 +195,7 @@
     //   title: The glossary section title
     //   body: Content containing all groups and entries
     section: (title, body) => {
-      heading(level: 1, title, numbering: none)
+      heading(level: 1, title)
       body
     },
     // Renders a group of related glossary terms
@@ -260,25 +254,29 @@
     },
   )
 
-
-  glossary(
-    title: "Glossaire",
-    theme: my-theme, // Optional: defaults to theme-academic
-    sort: true, // Optional: whether or not to sort the glossary
-    ignore-case: false, // Optional: ignore case when sorting terms
-  )
-  pagebreak()
-
-  body
-  pagebreak()
+  if (enableGlossary) {
+    pagebreak()
+    glossary(
+      title: "Glossaire",
+      theme: my-theme,
+      sort: true,
+      ignore-case: false,
+    )
+  }
 
   // Bibliography configuration
-  bibliography("../2-references.bib")
-  pagebreak()
+  if (enableBibliography) {
+    pagebreak()
+    show bibliography: set heading(numbering: "I.1.a)")
+    bibliography("template/references.bib")
+  }
 
   // Appendices configuration
-  heading()[Annexes]
-  import "../2-annexes.typ": annexes
-  annexes()
+  if (enableAppendices) {
+    pagebreak()
+    heading()[Annexes]
+    import "template/appendices.typ": annexes
+    annexes()
+  }
 }
 }
