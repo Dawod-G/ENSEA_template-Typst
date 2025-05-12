@@ -1,4 +1,4 @@
-// edited on 03/05/2025
+// edited on 12/05/2025
 
 // ============================
 // CONFIGURATION
@@ -36,6 +36,8 @@
   // Set the equation numbering
   set math.equation(numbering: "(1)")
 
+  show figure.where(kind: image): set figure(supplement: "Figure")
+
   // Configure the figure caption alignment:
   // if figure caption has more than one line,
   // it makes it left-aligned
@@ -54,6 +56,12 @@
 
   // Configure the raw block properties
   show raw.where(block: true): set par(justify: false)
+
+  // From the INSA Typst Template by SkytAsul:
+  // https://github.com/SkytAsul/INSA-Typst-Template
+  show raw.line: it => if it.count > 1 {
+    text(fill: luma(150), str(it.number)) + h(2em) + it.body
+  } else { it }
 
   // Display links in blue
   show link: set text(fill: blue.darken(40%))
@@ -108,12 +116,10 @@
       #stack(
         dir: ltr,
 
-        align(left + bottom, image("assets/logo-ENSEA.jpg", width: 8%)),
+      align(left + bottom, image("assets/logo-ENSEA.jpg", width: 8%)),
 
-        h(5%), // 5% space before the title
-
-        align(center + bottom)[
-          #box(width: 84%)[
+        align(right + bottom)[
+          #box(width: 88%)[
             #title
           ]
         ],
@@ -127,15 +133,16 @@
       #stack(
         dir: ltr,
 
-        align(left + top)[
-          #box(width: 84%)[#(
+        align(left + horizon)[
+          #box(width: 85%)[#(
               authors.join(", ", last: " et ")
             )]],
 
-        h(5%), // 5% space before the title
-
-        align(right + top)[
-          #box(width: 8%)[#counter(page).display("1/1", both: true)]],
+        align(right + horizon)[
+          #box(width: 8%)[
+            #counter(page).display("1/1", both: true)
+          ]
+        ],
       )
 
       #set align(center)

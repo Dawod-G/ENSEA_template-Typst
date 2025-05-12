@@ -1,6 +1,7 @@
-// edited on 04/05/2025
+// edited on 12/05/2025
 
 #import "@preview/glossy:0.8.0": *
+#import "@preview/hydra:0.6.1": anchor, hydra
 
 // ============================
 // CONFIGURATION
@@ -27,10 +28,10 @@
 
   // Set the text properties
   set text(font: "New Computer Modern", size: 12pt, lang: "fr", region: "fr")
-  /* for English: lang: 'en' and region: 'us'
-  For other languages/regions, refer to this page:
-  lang: https://en.wikipedia.org/wiki/ISO_639
-  region: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 */
+  // for English: lang: 'en' and region: 'us'
+  // For other languages/regions, refer to this page:
+  // lang: https://en.wikipedia.org/wiki/ISO_639
+  // region: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 
   // Set the heading properties
   set heading(numbering: "I.1.a)")
@@ -44,6 +45,10 @@
   // Set the equation numbering
   set math.equation(numbering: "(1)")
 
+  show figure.where(kind: image): set figure(
+    supplement: "Figure",
+  )
+  
   // Configure the figure caption alignment:
   // if figure caption has more than one line,
   // it makes it left-aligned
@@ -59,9 +64,15 @@
       #align(my-align, it)
     ])
   }
-
+  
   // Configure the raw block properties
   show raw.where(block: true): set par(justify: false)
+
+  // From the INSA Typst Template by SkytAsul:
+  // https://github.com/SkytAsul/INSA-Typst-Template
+  show raw.line: it => if it.count > 1 {
+    text(fill: luma(150), str(it.number)) + h(2em) + it.body
+  } else { it }
 
   // First page configuration
   align(center + horizon)[
@@ -113,23 +124,26 @@
   pagebreak()
   // Definition of the following pages with different margins
   set page(
-    margin: (top: 100pt, bottom: 150pt),
+    // IS alternateFooter 100pt
+    // IS NOT alternateFooter 150pt
+    margin: (top: 100pt, bottom: 100pt),
 
     header: context [
+      // to use #hydra outside of the page header, an #anchor must be placed
+      #anchor(),
+
       #stack(
         dir: ltr,
 
         align(left + bottom, image("assets/logo-ENSEA.jpg", width: 8%)),
 
-        h(7%), // 7% space before the title
 
         align(center + bottom)[
-          #box(width: 70%)[
+          #box(width: 75%)[
             #title
           ]
         ],
 
-        h(7%), // 7% space before the title
 
         align(right + bottom, image(companyLogo, width: 8%)),
       )
@@ -139,14 +153,33 @@
 
     footer: context [
       #box(width: 100%, height: 1pt, fill: black)
-      #align(
-        right + top,
-      )[*École Nationale Supérieure de l’Électronique et de ses Applications* #linebreak()
-        6, avenue du Ponceau • CS20707 Cergy • 95014 Cergy-Pontoise Cedex • France #linebreak()
-        #link("tel:+33130736666")[+33 (0)1 30 73 66 66] • #link("www.ensea.fr")[www.ensea.fr]]
 
-      #set align(center + top)
-      #counter(page).display("— 1/1 —", both: true)
+      // IS NOT alternateFooter
+      // #align(
+      //   right + top,
+      // )[*École Nationale Supérieure de l’Électronique et de ses Applications* #linebreak()
+      //   6, avenue du Ponceau • CS20707 Cergy • 95014 Cergy-Pontoise Cedex • France #linebreak()
+      //   #link("tel:+33130736666")[+33 (0)1 30 73 66 66] • #link("www.ensea.fr")[www.ensea.fr]]
+
+      // #set align(center + horizon)
+      // #counter(page).display("— 1/1 —", both: true)
+
+      // IS alternateFooter
+      #stack(
+        dir: ltr,
+
+        align(left + horizon)[
+          #box(width: 85%)[
+            #emph(hydra(1))
+          ]
+        ],
+
+        align(right + horizon)[
+          #box(width: 8%)[
+            #counter(page).display("1/1", both: true)
+          ]
+        ],
+      )
     ],
   )
 
@@ -278,5 +311,4 @@
     import "template/appendices.typ": annexes
     annexes()
   }
-}
 }
