@@ -1,0 +1,102 @@
+// edited on 12/05/2025
+
+// ============================
+// CONFIGURATION
+// ============================
+
+#let letter(
+  authors: none,
+  position: none,
+  date: datetime.today(),
+  body,
+) = {
+  // Set the document's basic properties.
+  set document(author: authors)
+
+  // Set the page properties
+  set page(paper: "a4", margin: auto, number-align: center)
+
+  // Set the text properties
+  set text(font: "New Computer Modern", size: 12pt, lang: "fr", region: "fr")
+  /* for English: lang: 'en' and region: 'us'
+  For other languages/regions, refer to this page:
+  lang: https://en.wikipedia.org/wiki/ISO_639
+  region: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 */
+
+  // Config. of the spacing after headings
+  show heading.where(level: 1): set block(spacing: 1em)
+
+  // Set the list properties
+  set list(indent: 15pt, marker: [--]) // config. of lists
+
+  show figure.where(kind: image): set figure(supplement: "Figure")
+
+  // Configure the figure caption alignment:
+  // if figure caption has more than one line,
+  // it makes it left-aligned
+  show figure.caption: it => {
+    layout(size => [
+      #let text-size = measure(it.supplement + it.separator + it.body)
+      #let my-align
+      #if text-size.width < size.width {
+        my-align = center
+      } else {
+        my-align = left
+      }
+      #align(my-align, it)
+    ])
+  }
+
+  // Configure the raw block properties
+  show raw.where(block: true): set par(justify: false)
+
+  // From the INSA Typst Template by SkytAsul:
+  // https://github.com/SkytAsul/INSA-Typst-Template
+  show raw.line: it => if it.count > 1 {
+    text(fill: luma(150), str(it.number)) + h(2em) + it.body
+  } else { it }
+
+  // Display links in blue
+  show link: set text(fill: blue.darken(40%))
+
+  set par(justify: true)
+
+  // Page configuration
+  set page(
+    margin: (top: 120pt),
+    header: context [
+      #stack(
+        dir: ltr,
+
+        align(left + bottom, image("assets/logo-ENSEA.jpg", width: 10%)),
+
+        align(right + bottom)[
+          #box(width: 86%)[#(
+              authors.join(", ", last: " et ")
+            )
+            #linebreak()
+            #position
+            #linebreak()
+            // From the INSA Typst Template by SkytAsul:
+            // https://github.com/SkytAsul/INSA-Typst-Template
+            #if type(date) == datetime [
+              #date.display("[day]/[month]/[year]")
+            ] else [
+              #date
+            ]
+          ]],
+      )
+      #box(width: 100%, height: 1pt, fill: black)
+    ],
+
+    footer: context [
+      #if counter(page).final() != (1,) {
+        align(center + horizon)[#counter(page).display("1/1", both: true)]
+      }
+
+      #set align(center)
+    ],
+  )
+
+  body
+}
