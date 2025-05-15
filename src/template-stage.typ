@@ -1,4 +1,4 @@
-// edited on 14/05/2025
+// edited on 15/05/2025
 
 #import "@preview/glossy:0.8.0": *
 #import "@preview/hydra:0.6.1": anchor, hydra
@@ -20,6 +20,37 @@
   enableAppendices: true,
   body,
 ) = {
+  // Check if all mandatory variables are defined.
+  if companyLogo == none {
+    panic(
+      "The `companyLogo` variable must be defined. It should be a string representing the path to the company logo.",
+    )
+  }
+
+  if authors == none {
+    panic(
+      "The `authors` variable must be defined. It should be a list of strings representing the authors of the report.",
+    )
+  }
+
+  if studentInfo == none {
+    panic(
+      "The `studentInfo` variable must be defined. It should be a string with the student's information.",
+    )
+  }
+
+  if title == none {
+    panic(
+      "The `title` variable must be defined. It should be a string representing the title of the report.",
+    )
+  }
+
+  if internshipDetails == none {
+    panic(
+      "The `internshipDetails` variable must be defined. It should be a string describing the details of the internship.",
+    )
+  }
+
   // Set the document's basic properties.
   set document(author: authors, title: title)
 

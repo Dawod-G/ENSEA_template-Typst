@@ -1,4 +1,4 @@
-// edited on 12/05/2025
+// edited on 15/05/2025
 
 // ============================
 // CONFIGURATION
@@ -10,6 +10,17 @@
   date: datetime.today(),
   body,
 ) = {
+  // Check if all mandatory variables are defined.
+  if authors == none {
+    panic(
+      "The `authors` variable must be defined. It should be a list of strings representing the authors of the document.",
+    )
+  }
+
+  if position == none {
+    panic("The `position` variable must be defined. It should be a string.")
+  }
+
   // Set the document's basic properties.
   set document(author: authors)
 
