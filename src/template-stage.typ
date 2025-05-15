@@ -1,4 +1,4 @@
-// edited on 12/05/2025
+// edited on 14/05/2025
 
 #import "@preview/glossy:0.8.0": *
 #import "@preview/hydra:0.6.1": anchor, hydra
@@ -45,10 +45,8 @@
   // Set the equation numbering
   set math.equation(numbering: "(1)")
 
-  show figure.where(kind: image): set figure(
-    supplement: "Figure",
-  )
-  
+  show figure.where(kind: image): set figure(supplement: "Figure")
+
   // Configure the figure caption alignment:
   // if figure caption has more than one line,
   // it makes it left-aligned
@@ -64,7 +62,7 @@
       #align(my-align, it)
     ])
   }
-  
+
   // Configure the raw block properties
   show raw.where(block: true): set par(justify: false)
 
@@ -199,7 +197,7 @@
   }
 
   outline(
-    // set the maximum level up to which elements are included in the outline
+    indent: 1em,
     // depth: 2,
   )
 
@@ -208,14 +206,14 @@
   if (enableFigureContent) {
     pagebreak()
     heading(numbering: none)[Liste des figures]
-    outline(title: none, target: figure.where(kind: image))
+    outline(indent: 1em, title: none, target: figure.where(kind: image))
   }
 
   // Table contents configuration
   if (enableTableContent) {
     pagebreak()
     heading(numbering: none)[Liste des tableaux]
-    outline(title: none, target: figure.where(kind: table))
+    outline(indent: 1em, title: none, target: figure.where(kind: table))
   }
 
   pagebreak()
@@ -307,6 +305,7 @@
   // Appendices configuration
   if (enableAppendices) {
     pagebreak()
+    set heading(numbering: none, supplement: "Annexe")
     heading()[Annexes]
     import "template/appendices.typ": annexes
     annexes()

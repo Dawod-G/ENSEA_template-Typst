@@ -55,7 +55,7 @@
   }
 
   // Configure the raw block properties
-  show raw.where(block: true): set par(justify: false)
+  show raw.where(block: true): set par(justify: false)  
 
   // From the INSA Typst Template by SkytAsul:
   // https://github.com/SkytAsul/INSA-Typst-Template

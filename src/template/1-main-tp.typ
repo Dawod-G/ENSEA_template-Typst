@@ -1,5 +1,3 @@
-// edited on 04/05/2025
-
 #import "../template-tp.typ": lab-report
 
 // ============================

@@ -1,5 +1,3 @@
-// edited on 12/05/2025
-
 #import "../template-letter.typ": letter
 
 // ============================

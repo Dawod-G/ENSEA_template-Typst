@@ -1,5 +1,3 @@
-// edited on 04/05/2025
-
 #import "@preview/glossy:0.8.0": *
 #show: init-glossary.with(yaml("glossary.yaml"))
 
