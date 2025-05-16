@@ -9,7 +9,7 @@
   counter(heading).update(0)
 
   // From Reddit:
-  // https://www.reddit.com/r/typst/comments/18exrv5/hide_previous_level_heading_counters/?rdt=64643
+  // https://www.reddit.com/r/typst/comments/18exrv5/comment/kcrdfc3/
   set heading(
     numbering: (..nums) => {
       // Get the position of the title in the hierarchy
