@@ -1,4 +1,4 @@
-// edited on 15/05/2025
+// edited on 16/05/2025
 
 #import "@preview/glossy:0.8.0": *
 #import "@preview/hydra:0.6.1": anchor, hydra
@@ -102,6 +102,38 @@
   show raw.line: it => if it.count > 1 {
     text(fill: luma(150), str(it.number)) + h(2em) + it.body
   } else { it }
+
+  // Adapted from the Typst forum:
+  // https://forum.typst.app/t/how-to-change-numbering-in-appendix/1716/5
+  let backmatter(content) = {
+    set heading(numbering: "A.1")
+    counter(heading).update(0)
+    state("backmatter").update(true)
+    content
+  }
+
+  set figure(numbering: n => {
+    let appx = state("backmatter", false).get()
+    let hdr = counter(heading).get()
+    let format = if appx {
+      "A.1"
+    } else {
+      "1.1"
+    }
+    let h = if appx {
+      hdr.at(1)
+    } else {
+      hdr.first()
+    }
+    numbering(format, h, n)
+  })
+
+  // Reset figure and table counters to 0 at each level-1 heading
+  show heading.where(level: 1): hdr => {
+    counter(figure.where(kind: image)).update(0)
+    counter(figure.where(kind: table)).update(0)
+    hdr
+  }
 
   // First page configuration
   align(center + horizon)[
@@ -338,6 +370,7 @@
     pagebreak()
     set heading(numbering: none, supplement: "Annexe")
     heading()[Annexes]
+    show: backmatter // to change numbering style in Appendix
     import "template/appendices.typ": annexes
     annexes()
   }

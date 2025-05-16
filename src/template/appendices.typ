@@ -30,6 +30,15 @@
     supplement: "Annexe",
   )
 
+  // From the Typst forum:
+  // https://forum.typst.app/t/how-to-change-numbering-in-appendix/1716/5
+  // Reset figure and table counters to 0 at each level-2 heading
+  show heading.where(level: 2): hdr => {
+    counter(figure.where(kind: image)).update(0)
+    counter(figure.where(kind: table)).update(0)
+    hdr
+  }
+
   text[
     // ============================
     // START HERE
