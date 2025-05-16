@@ -13,8 +13,9 @@
   studentInfo: none,
   title: none,
   internshipDetails: none,
-  enableFigureContent: true,
-  enableTableContent: true,
+  enableListOfFigures: true,
+  enableListOfTables: true,
+  enableListOfAppendices: true,
   enableGlossary: true,
   enableBibliography: true,
   enableAppendices: true,
@@ -266,17 +267,27 @@
 
 
   // Figure contents configuration
-  if (enableFigureContent) {
+  if (enableListOfFigures) {
     pagebreak()
     heading(numbering: none)[Liste des figures]
     outline(indent: 1em, title: none, target: figure.where(kind: image))
   }
 
   // Table contents configuration
-  if (enableTableContent) {
+  if (enableListOfTables) {
     pagebreak()
     heading(numbering: none)[Liste des tableaux]
     outline(indent: 1em, title: none, target: figure.where(kind: table))
+  }
+
+  if (enableListOfAppendices) {
+    pagebreak()
+    heading(numbering: none)[Liste des annexes]
+    outline(
+      indent: 1em,
+      title: none,
+      target: heading.where(supplement: [showAppendices]),
+    )
   }
 
   pagebreak()

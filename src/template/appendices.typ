@@ -27,7 +27,7 @@
 
       numbering(style, num)
     },
-    supplement: none,
+    supplement: "showAppendices", // I hope no one will use the 'supplement' option for appendices ^_^
   )
 
   // From the Polytechnique Typst Template by remigerme:

@@ -36,8 +36,9 @@
     - Mme *Marie DUBOIS*, Responsable des Opérations #linebreak()
   ],
 
-  enableFigureContent: true,
-  enableTableContent: true,
+  enableListOfFigures: true,
+  enableListOfTables: true,
+  enableListOfAppendices: true,
   enableGlossary: true,
   enableBibliography: true,
   enableAppendices: true,
