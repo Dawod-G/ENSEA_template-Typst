@@ -27,30 +27,40 @@
 
       numbering(style, num)
     },
-    supplement: "Annexe",
+    supplement: none,
   )
 
-  // From the Typst forum:
-  // https://forum.typst.app/t/how-to-change-numbering-in-appendix/1716/5
-  // Reset figure and table counters to 0 at each level-2 heading
-  show heading.where(level: 2): hdr => {
-    counter(figure.where(kind: image)).update(0)
-    counter(figure.where(kind: table)).update(0)
-    hdr
+  // From the Polytechnique Typst Template by remigerme:
+  // https://github.com/remigerme/typst-polytechnique
+  let appendix(body, title: "Annexe") = {
+    // From https://github.com/typst/typst/discussions/3630
+    set heading(numbering: (..nums) => {
+      let vals = nums.pos()
+      let s = ""
+      if vals.len() == 1 {
+        s += title + " "
+      }
+      s += numbering("A.1 -", ..vals)
+      s
+    })
+
+    body
   }
+
+  show: appendix
 
   text[
     // ============================
     // START HERE
     // ============================
 
-    #heading(level: 2)[Logo de l'ENSEA (encore)]
+    #heading(level: 1)[Logo de l'ENSEA (encore)]<ann1>
     #figure(
       image("media/logo-ENSEA.jpg", width: 25%),
       caption: [Logo de l'ENSEA (encore)],
     )
 
-    == Logo générique
+    = Logo générique
     #figure(image("media/logo.png", width: 25%), caption: [Logo générique])
 
     // ============================

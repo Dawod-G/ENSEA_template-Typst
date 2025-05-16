@@ -121,7 +121,7 @@
       "1.1"
     }
     let h = if appx {
-      hdr.at(1)
+      hdr.at(0)
     } else {
       hdr.first()
     }
@@ -368,8 +368,6 @@
   // Appendices configuration
   if (enableAppendices) {
     pagebreak()
-    set heading(numbering: none, supplement: "Annexe")
-    heading()[Annexes]
     show: backmatter // to change numbering style in Appendix
     import "template/appendices.typ": annexes
     annexes()
