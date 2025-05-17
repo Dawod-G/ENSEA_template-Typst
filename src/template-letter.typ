@@ -1,4 +1,4 @@
-// edited on 15/05/2025
+// edited on 17/05/2025
 
 // ============================
 // CONFIGURATION
@@ -26,6 +26,9 @@
 
   // Set the page properties
   set page(paper: "a4", margin: auto, number-align: center)
+
+  // if "weak: true", the page break is skipped if the current page is already empty
+  set pagebreak(weak: true)
 
   // Set the text properties
   set text(font: "New Computer Modern", size: 12pt, lang: "fr", region: "fr")
@@ -79,9 +82,9 @@
       #stack(
         dir: ltr,
 
-        align(left + bottom, image("assets/logo-ENSEA.jpg", width: 10%)),
+        align(left + horizon, image("assets/logo-ENSEA.jpg", height: 64%)),
 
-        align(right + bottom)[
+        align(right + horizon)[
           #box(width: 86%)[#(
               authors.join(", ", last: " et ")
             )
