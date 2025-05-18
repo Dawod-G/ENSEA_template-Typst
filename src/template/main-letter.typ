@@ -5,11 +5,15 @@
 // ============================
 
 #show: letter.with(
-  // List of authors
+  // Name(s) of the document author(s)
   authors: (
     "Jean DUPONT",
   ),
+
+  // Position or role of the author(s)
   position: [1Gx TDy TPz],
+
+  // Date of the document
   date: datetime.today(),
 )
 

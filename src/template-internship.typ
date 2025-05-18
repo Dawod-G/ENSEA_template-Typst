@@ -8,15 +8,17 @@
 // ============================
 
 #let lab-internship(
+  // Mandatory variable
   companyLogo: none,
   authors: none,
   studentInfo: none,
   title: none,
   internshipDetails: none,
+  // Optional variable
   enableListOfFigures: true,
-  enableListOfTables: true,
-  enableListOfAppendices: true,
-  enableGlossary: true,
+  enableListOfTables: false,
+  enableListOfAppendices: false,
+  enableGlossary: false,
   enableBibliography: true,
   enableAppendices: true,
   body,

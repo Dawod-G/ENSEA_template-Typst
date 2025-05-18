@@ -17,7 +17,7 @@ typst init volt-internship-ensea
 
 | Parameter                | Default Value | Description                            | Mandatory |
 |--------------------------|----------------|----------------------------------------|-----------|
-| `companyLogo`            | `none`         | Company logo                           | ✅         |
+| `companyLogo`            | `none`         | Path to the company logo               | ✅         |
 | `authors`                | `none`         | Name(s) of the report author(s)        | ✅         |
 | `studentInfo`            | `none`         | Information about the student(s)       | ✅         |
 | `title`                  | `none`         | Title of the internship report         | ✅         |

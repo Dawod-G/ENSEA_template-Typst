@@ -15,20 +15,20 @@
   // Path to the company logo
   companyLogo: "template/media/logo.png",
 
-  // List of authors
+  // Name(s) of the report author(s)
   authors: (
     "Jean DUPONT",
   ),
 
-  // Information about the student
+  // Information about the student(s)
   studentInfo: [*Élève ingénieur en X#super[ème] année* #linebreak()
     Promotion 20XX #linebreak()
     Année 20XX/20XX],
 
-  // Title of the report
+  // Title of the internship report
   title: [#lorem(10)],
 
-  // Details about the internship
+  // Company name, location, duration, etc.
   internshipDetails: [Stage effectué du *1er mars au 30 août 2025*, au sein de la société *TechSolutions*, située à Paris.
 
     Sous la responsabilité de : #linebreak()
@@ -36,11 +36,17 @@
     - Mme *Marie DUBOIS*, Responsable des Opérations #linebreak()
   ],
 
+  // Enable the list of figures
   enableListOfFigures: true,
+  // Enable the list of tables
   enableListOfTables: true,
+  // Enable the list of appendices
   enableListOfAppendices: true,
+  // Enable the glossary section
   enableGlossary: true,
+  // Enable the bibliography
   enableBibliography: true,
+  // Enable the appendix section
   enableAppendices: true,
 )
 
