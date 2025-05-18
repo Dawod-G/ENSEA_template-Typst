@@ -1,4 +1,4 @@
-// edited on 17/05/2025
+// edited on 18/05/2025
 
 // ============================
 // CONFIGURATION
@@ -139,38 +139,41 @@
 
   // Definition of the following pages with different margins
   set page(
-    margin: (top: 100pt),
+    margin: (top: 80pt, bottom: 1.5cm),
+    header-ascent: 10pt,
+    footer-descent: 10pt,
+
     header: context [
       #stack(
         dir: ltr,
 
-        align(left + horizon, image("assets/logo-ENSEA.jpg", height: 58%)),
+        align(left + horizon, image("assets/logo-ENSEA.jpg", height: 14mm)),
 
         align(right + bottom)[
-          #box(width: 88%)[
-            #title
-          ]
+          #text(size: 10pt)[
+            #box(width: 88%)[
+              #title
+            ]]
         ],
       )
       #box(width: 100%, height: 1pt, fill: black)
     ],
 
     footer: context [
-      #box(width: 100%, height: 1pt, fill: black)
-
+      #place(top + left, dy: -10pt, box(width: 100%, height: 1pt, fill: black))
       #stack(
         dir: ltr,
 
-        align(left + horizon)[
-          #box(width: 85%)[#(
-              authors.join(", ", last: " et ")
-            )]],
+        align(left + top)[#text(size: 10pt)[
+            #box(width: 85%)[#(
+                authors.join(", ", last: " et ")
+              )]]],
 
-        align(right + horizon)[
-          #box(width: 8%)[
-            #counter(page).display("1/1", both: true)
-          ]
-        ],
+        align(right + top)[#text(size: 10pt)[
+            #box(width: 8%)[
+              #counter(page).display("1/1", both: true)
+            ]
+          ]],
       )
 
       #set align(center)

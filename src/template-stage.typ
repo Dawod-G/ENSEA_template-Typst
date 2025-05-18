@@ -1,4 +1,4 @@
-// edited on 17/05/2025
+// edited on 18/05/2025
 
 #import "@preview/glossy:0.8.0": *
 #import "@preview/hydra:0.6.1": anchor, hydra
@@ -191,8 +191,9 @@
   set page(
     // IS alternateFooter 100pt
     // IS NOT alternateFooter 150pt
-    margin: (top: 100pt, bottom: 100pt),
-
+    margin: (top: 80pt, bottom: 1.5cm),
+    header-ascent: 10pt,
+    footer-descent: 10pt,
     header: context [
       // to use #hydra outside of the page header, an #anchor must be placed
       #anchor(),
@@ -200,24 +201,25 @@
       #stack(
         dir: ltr,
 
-        align(left + horizon, image("assets/logo-ENSEA.jpg", height: 58%)),
+        align(left + horizon, image("assets/logo-ENSEA.jpg", height: 14mm)),
 
 
         align(center + horizon)[
-          #box(width: 75%)[
-            #title
-          ]
+          #text(size: 10pt)[
+            #box(width: 75%)[
+              #title
+            ]]
         ],
 
 
-        align(right + horizon, image(companyLogo, height: 58%)),
+        align(right + horizon, image(companyLogo, height: 14mm)),
       )
 
       #box(width: 100%, height: 1pt, fill: black)
     ],
 
     footer: context [
-      #box(width: 100%, height: 1pt, fill: black)
+      #place(top + left, dy: -10pt, box(width: 100%, height: 1pt, fill: black))
 
       // IS NOT alternateFooter
       // #align(
@@ -233,17 +235,17 @@
       #stack(
         dir: ltr,
 
-        align(left + horizon)[
-          #box(width: 85%)[
-            #emph(hydra(1))
-          ]
-        ],
+        align(left + top)[#text(size: 10pt)[
+            #box(width: 85%)[
+              #emph(hydra(1))
+            ]
+          ]],
 
-        align(right + horizon)[
-          #box(width: 8%)[
-            #counter(page).display(both: true)
-          ]
-        ],
+        align(right + top)[#text(size: 10pt)[
+            #box(width: 8%)[
+              #counter(page).display(both: true)
+            ]
+          ]],
       )
     ],
   )

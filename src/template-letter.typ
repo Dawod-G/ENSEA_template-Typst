@@ -1,4 +1,4 @@
-// edited on 17/05/2025
+// edited on 18/05/2025
 
 // ============================
 // CONFIGURATION
@@ -77,38 +77,40 @@
 
   // Page configuration
   set page(
-    margin: (top: 120pt),
+    margin: (top: 80pt),
+    header-ascent: 10pt,
     header: context [
       #stack(
         dir: ltr,
 
-        align(left + horizon, image("assets/logo-ENSEA.jpg", height: 64%)),
+        align(left + horizon, image("assets/logo-ENSEA.jpg", height: 14mm)),
 
         align(right + horizon)[
-          #box(width: 86%)[#(
-              authors.join(", ", last: " et ")
-            )
-            #linebreak()
-            #position
-            #linebreak()
-            // From the INSA Typst Template by SkytAsul:
-            // https://github.com/SkytAsul/INSA-Typst-Template
-            #if type(date) == datetime [
-              #date.display("[day]/[month]/[year]")
-            ] else [
-              #date
-            ]
-          ]],
+          #text(size: 10pt)[#box(width: 86%)[#(
+                authors.join(", ", last: " et ")
+              )
+              #linebreak()
+              #position
+              #linebreak()
+              // From the INSA Typst Template by SkytAsul:
+              // https://github.com/SkytAsul/INSA-Typst-Template
+              #if type(date) == datetime [
+                #date.display("[day]/[month]/[year]")
+              ] else [
+                #date
+              ]
+            ]]],
       )
       #box(width: 100%, height: 1pt, fill: black)
     ],
 
     footer: context [
       #if counter(page).final() != (1,) {
-        align(center + horizon)[#counter(page).display("1/1", both: true)]
+        align(center + top)[#text(size: 10pt)[#counter(page).display(
+              "1/1",
+              both: true,
+            )]]
       }
-
-      #set align(center)
     ],
   )
 
