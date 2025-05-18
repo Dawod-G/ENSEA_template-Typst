@@ -164,8 +164,8 @@
     #stack(
       dir: ltr, // left-to-right
       spacing: 5em, // space between contents
-      image("assets/logo-ENSEA.jpg", height: 17%),
-      image(companyLogo, height: 17%),
+      image("assets/logo-ENSEA.jpg", height: 42mm),
+      image(companyLogo, height: 42mm),
     )
 
     #linebreak()
