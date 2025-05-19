@@ -28,7 +28,7 @@ All fields listed above are **mandatory**.
 ## Example
 
 ```typst
-#import "../template-lab.typ": lab-report
+#import "@preview/volt-lab-ensea:0.1.0": *
 
 #show: lab-report.with(
   title: [#lorem(10)],
