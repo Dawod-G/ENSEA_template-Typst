@@ -49,9 +49,14 @@ All fields listed above are **mandatory**.
 = Introduction
 #lorem(120)
 ```
-![thumbnail-lab-1.png](thumbnail-lab-1.png)
 
-![thumbnail-lab-2.png](thumbnail-lab-2.png)
+<p align="center">
+    <img src="thumbnail-lab-1.png" style="width: 65%">
+</p>
+
+<p align="center">
+    <img src="thumbnail-lab-2.png" style="width: 65%">
+</p>
 
 ## License
 

@@ -1,4 +1,4 @@
-// edited on 18/05/2025
+// edited on 19/05/2025
 
 // ============================
 // CONFIGURATION
@@ -21,16 +21,13 @@
     panic("The `position` variable must be defined. It should be a string.")
   }
 
-  // Set the document's basic properties.
   set document(author: authors)
 
-  // Set the page properties
   set page(paper: "a4", margin: auto, number-align: center)
 
   // if "weak: true", the page break is skipped if the current page is already empty
   set pagebreak(weak: true)
 
-  // Set the text properties
   set text(font: "New Computer Modern", size: 12pt, lang: "fr", region: "fr")
   /* for English: lang: 'en' and region: 'us'
   For other languages/regions, refer to this page:
@@ -40,8 +37,7 @@
   // Config. of the spacing after headings
   show heading.where(level: 1): set block(spacing: 1em)
 
-  // Set the list properties
-  set list(indent: 15pt, marker: [--]) // config. of lists
+  set list(indent: 15pt, marker: [--])
 
   show figure.where(kind: image): set figure(supplement: "Figure")
 

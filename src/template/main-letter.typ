@@ -14,7 +14,7 @@
   position: [1Gx TDy TPz],
 
   // Date of the document
-  date: datetime.today(),
+  date: datetime.today(), // or "DD/MM/YYYY"
 )
 
 // ============================

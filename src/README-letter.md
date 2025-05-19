@@ -39,7 +39,10 @@ All fields listed above are **optional**.
 = Introduction
 #lorem(120)
 ```
-![thumbnail-letter.png](thumbnail-letter.png)
+
+<p align="center">
+    <img src="thumbnail-letter.png" style="width: 65%">
+</p>
 
 ## License
 

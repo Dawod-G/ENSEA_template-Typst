@@ -1,4 +1,4 @@
-// edited on 18/05/2025
+// edited on 19/05/2025
 
 // ============================
 // CONFIGURATION
@@ -36,32 +36,26 @@
     )
   }
 
-  // Set the document's basic properties.
   set document(author: authors, title: title)
 
-  // Set the page properties
   set page(paper: "a4", margin: auto, number-align: center)
 
   // if "weak: true", the page break is skipped if the current page is already empty
   set pagebreak(weak: true)
 
-  // Set the text properties
   set text(font: "New Computer Modern", size: 12pt, lang: "fr", region: "fr")
   /* for English: lang: 'en' and region: 'us'
   For other languages/regions, refer to this page:
   lang: https://en.wikipedia.org/wiki/ISO_639
   region: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 */
 
-  // Set the heading properties
   set heading(numbering: "I.1.a)")
 
   // Config. of the spacing after headings
   show heading.where(level: 1): set block(spacing: 1em)
 
-  // Set the list properties
   set list(indent: 15pt, marker: [--]) // config. of lists
 
-  // Set the equation numbering
   set math.equation(numbering: "(1)")
 
   show figure.where(kind: image): set figure(supplement: "Figure")
@@ -129,9 +123,6 @@
         [#underline[*Objectifs*] : #labDescription],
       ))
     ]
-
-    /*       #heading(outlined: false, numbering: none, text(0.85em, smallcaps[objectif]))
-    labDescription */
   ]
 
   pagebreak()

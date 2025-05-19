@@ -25,7 +25,6 @@ typst init volt-internship-ensea
 | `enableListOfFigures`    | `true`         | Enable the list of figures             | ❌         |
 | `enableListOfTables`     | `false`        | Enable the list of tables              | ❌         |
 | `enableListOfAppendices` | `false`        | Enable the list of appendices          | ❌         |
-| `enableGlossary`         | `false`        | Enable the glossary section            | ❌         |
 | `enableBibliography`     | `true`         | Enable the bibliography                | ❌         |
 | `enableAppendices`       | `true`         | Enable the appendix section            | ❌         |
 
@@ -34,10 +33,7 @@ typst init volt-internship-ensea
 ## Example
 
 ```typst
-#import "@preview/glossy:0.8.0": *
-#show: init-glossary.with(yaml("glossary.yaml"))
-
-#import "../template-internship.typ": *
+#import "@preview/volt-internship-ensea:0.1.0": *
 
 #show: lab-internship.with(
   companyLogo: "template/media/logo.png",
@@ -62,13 +58,22 @@ typst init volt-internship-ensea
 = Introduction
 #lorem(120)
 ```
-![template-internship-1.png](thumbnail-internship-1.png)
 
-![template-internship-2.png](thumbnail-internship-2.png)
+<p align="center">
+    <img src="thumbnail-internship-1.png" style="width: 65%">
+</p>
 
-![template-internship-3.png](thumbnail-internship-3.png)
+<p align="center">
+    <img src="thumbnail-internship-2.png" style="width: 65%">
+</p>
 
-![template-internship-4.png](thumbnail-internship-4.png)
+<p align="center">
+    <img src="thumbnail-internship-3.png" style="width: 65%">
+</p>
+
+<p align="center">
+    <img src="thumbnail-internship-4.png" style="width: 65%">
+</p>
 
 ## License
 
