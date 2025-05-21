@@ -1,4 +1,4 @@
-// edited on 19/05/2025
+// edited on 21/05/2025
 
 // ============================
 // CONFIGURATION
@@ -50,7 +50,7 @@
   region: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 */
 
   set heading(numbering: "I.1.a.")
-  show heading : set text(hyphenate: false)
+  show heading: set text(hyphenate: false)
 
   // Config. of the spacing after headings
   show heading.where(level: 1): set block(spacing: 1em)

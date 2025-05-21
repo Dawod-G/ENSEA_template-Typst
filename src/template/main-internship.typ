@@ -7,10 +7,6 @@
 // VARIABLES TO MODIFY
 // ============================
 
-// Display links in blue.
-// Disabled for now because it also displays footer links in blue.
-// #show link: set text(fill: blue.darken(40%))
-
 #show: lab-internship.with(
   // Path to the company logo
   companyLogo: "template/media/logo.png",

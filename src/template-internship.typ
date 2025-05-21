@@ -1,4 +1,4 @@
-// edited on 19/05/2025
+// edited on 21/05/2025
 
 #import "@preview/glossy:0.8.0": *
 #import "@preview/hydra:0.6.1": anchor, hydra
@@ -67,8 +67,11 @@
   // lang: https://en.wikipedia.org/wiki/ISO_639
   // region: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 
+  // Display links in blue.
+  show link: set text(fill: blue.darken(40%))
+
   set heading(numbering: "I.1.a.")
-  show heading : set text(hyphenate: false)
+  show heading: set text(hyphenate: false)
 
   // Config. of the spacing after headings
   show heading.where(level: 1): set block(spacing: 1em)
@@ -219,7 +222,7 @@
       // IS NOT alternateFooter
       // margin: (bottom: 2.5cm),
       // footer-descent: 10pt,
-
+      // #show link: set text(fill: luma(0%))
       // #stack(
       //         dir: ltr,
 
