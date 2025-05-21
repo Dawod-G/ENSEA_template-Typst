@@ -415,6 +415,7 @@
   // Bibliography configuration
   if (enableBibliography) {
     pagebreak()
+    set par(justify: false)
     show bibliography: set heading(numbering: "I.1.a)")
     bibliography("template/references.bib")
   }
