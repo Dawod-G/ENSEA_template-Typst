@@ -342,6 +342,7 @@
 
   // Glossary configuration
   let my-theme = (
+    // Adapted from theme-basic:
     // Renders the main glossary section as a single column
     // Parameters:
     //   title: The glossary section title
@@ -374,34 +375,25 @@
     //   total: Total entries in group
     entry: (entry, index, total) => {
       // Format the term parts
-      let term = text(entry.short, weight: "bold")
-
-      // Optional long form
+      let term = text(weight: "bold", entry.short)
       let long-form = if entry.long == none {
-        []
+        [ ]
       } else {
-        [#text(" (" + entry.long + ")")]
+        [ (#entry.long) ]
       }
 
-      // Optional description
+      // Format the description with proper spacing
       let description = if entry.description == none {
         []
       } else {
         [: #entry.description]
       }
 
-      // Optional pages (always plural in French example)
-      let pages = if entry.pages == none {
-        []
-      } else {
-        [#text(" (pp. " + entry.pages + ")")]
-      }
-
       // Create the complete entry with hanging indent
       block(spacing: 0.5em, pad(
         left: 1em,
         bottom: 0.5em,
-        block([#term#entry.label#long-form#description #h(1em) #pages]),
+        block([#term#entry.label#long-form#description]),
       ))
     },
   )
