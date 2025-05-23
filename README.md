@@ -3,39 +3,38 @@
   
 Custom templates for documents made at ENSEA.
 
-## [Letter template: for short documents](https://github.com/Dawod-G/ENSEA_Typst-Template/blob/master/src/README-letter.md)
+## Letter template: for short documents
+
+[README](https://github.com/Dawod-G/ENSEA_Typst-Template/blob/master/src/README-letter.md)
 
 <p align="center">
-    <img src="src/thumbnail-letter.png" style="width: 65%">
+  <img src="src/thumbnail-letter.png" width="250" />
 </p>
 
-## [Lab template: for lab reports](https://github.com/Dawod-G/ENSEA_Typst-Template/blob/master/src/README-lab.md)
+## Lab template: for lab reports
+
+[README](https://github.com/Dawod-G/ENSEA_Typst-Template/blob/master/src/README-lab.md)
 
 <p align="center">
-    <img src="src/thumbnail-lab-1.png" style="width: 65%">
+  <img src="src/thumbnail-lab-1.png" width="250" />
+  <img src="src/thumbnail-lab-2.png" width="250" />
 </p>
+
+## Internship template: for internship reports
+
+[README](https://github.com/Dawod-G/ENSEA_Typst-Template/blob/master/src/README-internship.md)
 
 <p align="center">
-    <img src="src/thumbnail-lab-2.png" style="width: 65%">
+  <img src="src/thumbnail-internship-1.png" width="250" />
+  <img src="src/thumbnail-internship-2.png" width="250" />
+  <br/>
+  <img src="src/thumbnail-internship-3.png" width="250" />
+  <img src="src/thumbnail-internship-4.png" width="250" />
 </p>
 
-## [Internship template: for internship reports](https://github.com/Dawod-G/ENSEA_Typst-Template/blob/master/src/README-internship.md)
+## Contributions
 
-<p align="center">
-<img src="src/thumbnail-internship-1.png" style="width: 65%">
-</p>
-
-<p align="center">
-<img src="src/thumbnail-internship-2.png" style="width: 65%">
-</p>
-
-<p align="center">
-<img src="src/thumbnail-internship-3.png" style="width: 65%">
-</p>
-
-<p align="center">
-<img src="src/thumbnail-internship-4.png" style="width: 65%">
-</p>
+If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request. 
 
 ## License
 

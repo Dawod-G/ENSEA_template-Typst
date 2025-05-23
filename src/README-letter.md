@@ -41,8 +41,12 @@ All fields listed above are **optional**.
 ```
 
 <p align="center">
-    <img src="thumbnail-letter.png" style="width: 65%">
+  <img src="thumbnail-letter.png" width="250" />
 </p>
+
+## Contributions
+
+If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request. 
 
 ## License
 

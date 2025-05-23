@@ -51,12 +51,13 @@ All fields listed above are **mandatory**.
 ```
 
 <p align="center">
-    <img src="thumbnail-lab-1.png" style="width: 65%">
+  <img src="thumbnail-lab-1.png" width="250" />
+  <img src="thumbnail-lab-2.png" width="250" />
 </p>
 
-<p align="center">
-    <img src="thumbnail-lab-2.png" style="width: 65%">
-</p>
+## Contributions
+
+If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request. 
 
 ## License
 
